@@ -1,0 +1,152 @@
+Usuarios
+
+POST http://localhost:5000/api/usuarios/create
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellido1": "García",
+  "apellido2": "López",
+  "edad": 28
+}
+
+POST http://localhost:5000/api/usuarios/read
+Content-Type: application/json
+
+{
+  "filtroKey": "nombre",
+  "filtroValue": "Ana"
+}
+
+POST http://localhost:5000/api/usuarios/read
+Content-Type: application/json
+
+{
+  "filtroKey": "edad",
+  "filtroValue": 28
+}
+
+PUT http://localhost:5000/api/usuarios/update
+Content-Type: application/json
+
+{
+  "_id": "AQUI_PONER_EL_ID_REAL_DEL_USUARIO",
+  "nombre": "Ana María",
+  "apellido1": "García",
+  "apellido2": "López de la Torre",
+  "edad": 29
+}
+
+DELETE http://localhost:5000/api/usuarios/delete
+Content-Type: application/json
+
+{
+  "_id": "AQUI_PONER_EL_ID_REAL_DEL_USUARIO"
+}
+
+GET http://localhost:5000/api/usuarios/readall
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+Grupos
+
+POST http://localhost:5000/api/grupos/create
+Content-Type: application/json
+
+{
+  "nombre": "Administradores",
+  "descripcion": "Grupo de usuarios administradores del sistema",
+  "activo": true
+}
+
+POST http://localhost:5000/api/grupos/create
+Content-Type: application/json
+
+{
+  "nombre": "Antiguos Usuarios",
+  "descripcion": "Grupo de usuarios que ya no están activos",
+  "activo": false
+}
+
+POST http://localhost:5000/api/grupos/read
+Content-Type: application/json
+
+{
+  "filtroKey": "nombre",
+  "filtroValue": "Administradores"
+}
+
+POST http://localhost:5000/api/grupos/read
+Content-Type: application/json
+
+{
+  "filtroKey": "nombre",
+  "filtroValue": "Administradores"
+}
+
+POST http://localhost:5000/api/grupos/read
+Content-Type: application/json
+
+{
+  "filtroKey": "activo",
+  "filtroValue": true
+}
+
+PUT http://localhost:5000/api/grupos/update
+Content-Type: application/json
+
+{
+  "_id": "AQUI_PONER_EL_ID_REAL_DEL_GRUPO",
+  "nombre": "Super Administradores",
+  "descripcion": "Grupo con permisos elevados de administración",
+  "activo": true
+}
+
+DELETE http://localhost:5000/api/grupos/delete
+Content-Type: application/json
+
+{
+  "_id": "AQUI_PONER_EL_ID_REAL_DEL_GRUPO"
+}
+
+GET http://localhost:5000/api/grupos/readall
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+EJEMPLOS:
+
+POST http://localhost:5000/api/usuarios/create
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido1": "Martínez",
+  "apellido2": "Rodríguez",
+  "edad": 35
+}
+
+POST http://localhost:5000/api/grupos/create
+Content-Type: application/json
+
+{
+  "nombre": "Desarrolladores",
+  "descripcion": "Equipo de desarrollo de software",
+  "activo": true
+}
+
+POST http://localhost:5000/api/usuarios/read
+Content-Type: application/json
+
+{
+  "filtroKey": "nombre",
+  "filtroValue": "Carlos"
+}
+
+POST http://localhost:5000/api/grupos/read
+Content-Type: application/json
+
+{
+  "filtroKey": "activo", 
+  "filtroValue": true
+}
+
