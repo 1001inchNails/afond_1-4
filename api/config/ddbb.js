@@ -1,22 +1,11 @@
-import "dotenv/config";
-import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-// conexion mongoose a bbdd
 const connectDB = async () => {
   try {
-    // instancia del servidor
-    const mongod = await MongoMemoryServer.create();
-
-    // URI de conexión
-    const uri = mongod.getUri();
-    console.log("MongoDB en memoria ejecutándose en:", uri);
-
-    // conectar mongoose
-    await mongoose.connect(uri);
-    console.log("Mongoose conectado a la base de datos en memoria");
-  } catch (err) {
-    console.error("MongoDB error:", err);
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Conectado: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
     process.exit(1);
   }
 };

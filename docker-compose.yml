@@ -1,0 +1,36 @@
+services:
+  api:
+    build: .  
+    container_name: api-test
+    restart: unless-stopped
+    ports:
+      - "5000:5000"  
+    environment:
+      - MONGO_URI=mongodb://root:root@mongodb:27017/bbdd_test?authSource=admin
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: bbdd_test
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

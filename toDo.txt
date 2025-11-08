@@ -1,4 +1,0 @@
-api express sencillita
-base de datos mongo local: usuarios y grupos
-
-mongodb-memory-server
