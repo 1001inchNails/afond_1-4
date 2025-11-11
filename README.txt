@@ -6,7 +6,7 @@ base de datos mongo local: usuarios y grupos
 
 HECHA:
 Conectar a mongo sin mas con mongoose, y usar el contenedor mongo definido en archivo yamal
-dejar puertos "27017:27017" por si usamos compass
+dejar abiertos puertos "27017:27017"
 
 hacer archivo Dockerfile (el EXPOSE 3000 es solo documentacion, el puerto real es el de yamal)
 
