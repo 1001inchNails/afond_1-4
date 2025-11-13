@@ -1,0 +1,403 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage[section]{placeins}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = blue,
+    urlcolor = cyan
+}
+
+\geometry{a4paper, margin=2.5cm}
+
+\title{Documentación de API de Gestión de Restaurante}
+\author{Daniel Calvar Cruz}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+Esta API ofrece un servicio CRUD sobre una BBDD con dos colecciones, grupos y usuarios.\\
+
+La API está construida con Express.js y utiliza MongoDB como base de datos.
+
+\section{Estructura}
+
+\subsection{Rutas Principales}
+La API está organizada en dos apartados:
+
+\begin{itemize}
+    \item \textbf{Grupo}
+    \item \textbf{Usuario}
+\end{itemize}
+
+\subsection{Modelos de Datos}
+
+\subsubsection{Modelo Grupo}
+\begin{verbatim}
+({
+  nombre: {
+            type: String
+          },
+  descripcion: {
+            type: String
+          },
+  activo: {
+            type: Boolean
+          }
+});
+\end{verbatim}
+
+\subsubsection{Modelo Usuario}
+\begin{verbatim}
+({
+  nombre: {
+            type: String
+          },
+  apellido1: {
+            type: String
+          },
+  apellido2: {
+            type: String
+          },
+  edad: {
+            type: Number
+          }
+});
+\end{verbatim}
+
+\clearpage
+
+\section{Base de Datos}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+MongoDB (Atlas).\\
+
+{\textbf{Estructura}}
+\begin{itemize}
+  \item grupos: contiene los estados de los grupos.
+  \item usuarios: contiene los estados de los usuarios.
+\end{itemize}
+\clearpage
+
+\section{Endpoints}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+\section{Endpoints}
+\hyperlink{anchor-indice}{\textbf{Volver}}\
+
+\subsection{Endpoints POST}
+
+\subsubsection{POST /api/usuarios/create}
+\textbf{Descripción:} Crea un nuevo usuario en el sistema.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"nombre": "string",
+"apellido1": "string",
+"apellido2": "string",
+"edad": "number"
+}
+\end{verbatim}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Usuario creado exitosamente
+\item \textbf{400}: Error en los datos proporcionados
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\subsubsection{POST /api/usuarios/read}
+\textbf{Descripción:} Busca usuarios según un filtro específico.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"filtroKey": "string",
+"filtroValue": "string|number"
+}
+\end{verbatim}
+
+\textbf{Ejemplos de uso:}
+\begin{itemize}
+\item Buscar por nombre: \verb|{"filtroKey": "nombre", "filtroValue": "Ana"}|
+\item Buscar por edad: \verb|{"filtroKey": "edad", "filtroValue": 28}|
+\end{itemize}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Información encontrada con datos
+\item \textbf{404}: Usuarios no encontrados
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\subsubsection{POST /api/grupos/create}
+\textbf{Descripción:} Crea un nuevo grupo en el sistema.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"nombre": "string",
+"descripcion": "string",
+"activo": "boolean"
+}
+\end{verbatim}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Grupo creado exitosamente
+\item \textbf{400}: Error en los datos proporcionados
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\subsubsection{POST /api/grupos/read}
+\textbf{Descripción:} Busca grupos según un filtro específico.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"filtroKey": "string",
+"filtroValue": "string|boolean"
+}
+\end{verbatim}
+
+\textbf{Ejemplos de uso:}
+\begin{itemize}
+\item Buscar por nombre: \verb|{"filtroKey": "nombre", "filtroValue": "Administradores"}|
+\item Buscar por estado: \verb|{"filtroKey": "activo", "filtroValue": true}|
+\end{itemize}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Información encontrada con datos
+\item \textbf{404}: Grupos no encontrados
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\clearpage
+
+\subsection{Endpoints PUT}
+\hyperlink{anchor-indice}{\textbf{Volver}}\
+
+\subsubsection{PUT /api/usuarios/update}
+\textbf{Descripción:} Actualiza la información de un usuario existente.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"_id": "string",
+"nombre": "string",
+"apellido1": "string",
+"apellido2": "string",
+"edad": "number"
+}
+\end{verbatim}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Usuario actualizado exitosamente
+\item \textbf{400}: Error en los datos proporcionados
+\item \textbf{404}: Usuario no encontrado
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\subsubsection{PUT /api/grupos/update}
+\textbf{Descripción:} Actualiza la información de un grupo existente.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"_id": "string",
+"nombre": "string",
+"descripcion": "string",
+"activo": "boolean"
+}
+\end{verbatim}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Grupo actualizado exitosamente
+\item \textbf{400}: Error en los datos proporcionados
+\item \textbf{404}: Grupo no encontrado
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\clearpage
+
+\subsection{Endpoints DELETE}
+\hyperlink{anchor-indice}{\textbf{Volver}}\
+
+\subsubsection{DELETE /api/usuarios/delete}
+\textbf{Descripción:} Elimina un usuario del sistema.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"_id": "string"
+}
+\end{verbatim}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Usuario eliminado exitosamente
+\item \textbf{400}: Error en los datos proporcionados
+\item \textbf{404}: Usuario no encontrado
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\subsubsection{DELETE /api/grupos/delete}
+\textbf{Descripción:} Elimina un grupo del sistema.\
+
+\textbf{Body:}
+\begin{verbatim}
+{
+"_id": "string"
+}
+\end{verbatim}
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Grupo eliminado exitosamente
+\item \textbf{400}: Error en los datos proporcionados
+\item \textbf{404}: Grupo no encontrado
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\clearpage
+
+\subsection{Endpoints GET}
+\hyperlink{anchor-indice}{\textbf{Volver}}\
+
+\subsubsection{GET /api/usuarios/readall}
+\textbf{Descripción:} Obtiene todos los usuarios del sistema.\
+
+\textbf{Parámetros:} Ninguno\
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Lista de usuarios obtenida exitosamente
+\item \textbf{404}: No hay usuarios registrados
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+\subsubsection{GET /api/grupos/readall}
+\textbf{Descripción:} Obtiene todos los grupos del sistema.\
+
+\textbf{Parámetros:} Ninguno\
+
+\textbf{Respuestas:}
+\begin{itemize}
+\item \textbf{200}: Lista de grupos obtenida exitosamente
+\item \textbf{404}: No hay grupos registrados
+\item \textbf{500}: Error interno del servidor
+\end{itemize}
+
+
+\clearpage
+
+\section{Manejo de Errores}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+La API utiliza un sistema consistente de respuestas:
+
+\begin{verbatim}
+{
+  "type": "success|failure",
+  "message": "string descriptivo",
+  "data": "object (opcional)"
+}
+\end{verbatim}
+
+\section{Ejemplos de Uso}
+
+\begin{verbatim}
+POST http://localhost:5000/api/usuarios/create
+Content-Type: application/json
+
+{
+  "nombre": "Carlos",
+  "apellido1": "Martínez",
+  "apellido2": "Rodríguez",
+  "edad": 35
+}
+
+POST http://localhost:5000/api/grupos/create
+Content-Type: application/json
+
+{
+  "nombre": "Desarrolladores",
+  "descripcion": "Equipo de desarrollo de software",
+  "activo": true
+}
+
+POST http://localhost:5000/api/usuarios/read
+Content-Type: application/json
+
+{
+  "filtroKey": "nombre",
+  "filtroValue": "Carlos"
+}
+
+POST http://localhost:5000/api/grupos/read
+Content-Type: application/json
+
+{
+  "filtroKey": "activo", 
+  "filtroValue": true
+}
+\end{verbatim}
+
+
+\clearpage
+
+\section{Consideraciones Técnicas}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+\section{Códigos de Estado HTTP}
+
+\begin{itemize}
+    \item \textbf{200 OK}: Operación exitosa
+    \item \textbf{400 Bad Request}: Error en los datos enviados
+    \item \textbf{404 Not Found}: Recurso no encontrado
+    \item \textbf{500 Internal Server Error}: Error del servidor
+\end{itemize}
+
+\section{Stack tecnológico}
+
+\begin{itemize}
+    \item \textbf{Versión Node.js:} 22.14
+    \item \textbf{Base de datos:} MongoDB Atlas
+    \item \textbf{Dependencias NPM:}
+    \begin{itemize}
+        \item \textbf{cors:} 2.8.5
+        \item \textbf{dotenv:} 16.4.7
+        \item \textbf{express:} 4.21.1
+        \item \textbf{mongodb:} 6.12.0
+        \item \textbf{mongoose:} 8.13.2
+        \item \textbf{nodemon:} 3.1.10  
+    \end{itemize}
+\end{itemize}
+
+\section{Variables de entorno (.env)}
+
+    \begin{itemize}
+    \item \texttt{PORT}: Puerto en el que se ejecutará el servidor.
+    \item \texttt{MONGO\_INITDB\_ROOT\_USERNAME}: Nombre del usuario de la BBDD.
+    \item \texttt{MONGO\_INITDB\_ROOT\_PASSWORD}: Password de la BBDD.
+    \item \texttt{MONGO\_INITDB\_DATABASE}: Nombre de la BBDD.
+    \end{itemize}
+
+\end{document}
