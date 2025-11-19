@@ -2,6 +2,7 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\graphicspath{{../img/}}
 \usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{amsmath}
@@ -376,6 +377,7 @@ Content-Type: application/json
 \end{itemize}
 
 \section{Stack tecnológico}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
 
 \begin{itemize}
     \item \textbf{Versión Node.js:} 22.14
@@ -392,6 +394,7 @@ Content-Type: application/json
 \end{itemize}
 
 \section{Variables de entorno (.env)}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
 
     \begin{itemize}
     \item \texttt{PORT}: Puerto en el que se ejecutará el servidor.
@@ -399,5 +402,120 @@ Content-Type: application/json
     \item \texttt{MONGO\_INITDB\_ROOT\_PASSWORD}: Password de la BBDD.
     \item \texttt{MONGO\_INITDB\_DATABASE}: Nombre de la BBDD.
     \end{itemize}
+
+\section{Dockerizacion}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+\subsection{Dockerfile}
+
+\begin{verbatim}
+FROM node:20
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+\end{verbatim}
+
+Usamos Node.js, versión 20, definimos el directorio para la imagen, instalamos las dependencias de node, copiamos proyecto, iniciamos programa.
+
+Comando para levanter imagen: \verb|docker build -t ejemplo-api:v1.0.0 ./   |
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker01.png}
+\end{figure}
+\FloatBarrier
+
+Imagen creada:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker02.png}
+\end{figure}
+\FloatBarrier
+
+Comprobación de imagen, comando: \verb|docker run -p 5000:5000 -e PORT=5000 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=root -e MONGO_INITDB_DATABASE=bbdd_test -e MONGO_URI="mongodb://root:root@mongodb:27017/bbdd_test?authSource=admin" ejemplo-api:v1.0.0|
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker03.png}
+\end{figure}
+\FloatBarrier
+
+\subsection{Archivo YAML}
+
+\begin{verbatim}
+  services:
+  api:
+    image: ejemplo-api:v1.0.0
+    container_name: api-test
+    restart: unless-stopped
+    ports:
+      - "5000:5000"  
+    environment:
+      - MONGO_URI=mongodb://root:root@mongodb:27017/bbdd_test?authSource=admin
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: bbdd_test
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
+\end{verbatim}
+
+Importante:
+\begin{itemize}
+  \item \verb|image: ejemplo-api:v1.0.0|: El nombre de nuestra imagen local.
+  \item \verb|ports: - "5000:5000" |: puerto de la API.
+  \item \verb|environment: - MONGO_URI=mongodb://root:root@mongodb:27017/bbdd_test?authSource=admin|: variables de entorno.
+\end{itemize}
+
+Levantar contenedor: \verb|docker-compose up -d  |
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker04.png}
+\end{figure}
+\FloatBarrier
+
+Éxito:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker05.png}
+\end{figure}
+\FloatBarrier
+
+\subsection{Pushear imagen a Dockerhub}
+
+Build:
+\verb|docker build -t dccp/ejemplo-api:v1.0.0 ./|
+Nombre de usuario, nombre de imagen, tag, ruta.
+
+Push:
+\verb|docker push dccp/ejemplo-api:v1.0.0|
+Nombre de usuario, nombre de imagen, tag.
 
 \end{document}
