@@ -1,6 +1,6 @@
-PWD c:\Users\danielcc\Desktop\DAM 1T\code\vscode\afond_1-4\docs\latex
+PWD c:\Users\danielcc\Desktop\DAM 2T\code\vscode\afond_1-4\docs\latex
 INPUT C:\Users\danielcc\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\danielcc\Desktop\DAM 1T\code\vscode\afond_1-4\docs\latex\readme.tex
+INPUT c:\Users\danielcc\Desktop\DAM 2T\code\vscode\afond_1-4\docs\latex\readme.tex
 OUTPUT readme.log
 INPUT C:\Users\danielcc\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\danielcc\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls

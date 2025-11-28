@@ -42,6 +42,21 @@ jobs:
           cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_NAME }}:buildcache
           cache-to: type=inline
 
+      - name: Updatear Commit Status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: '${{ job.status }}',  # success, failure, error, or pending
+              description: 'Docker build ${{ job.status }}',
+              context: 'docker-build',
+              target_url: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+            })
+
+
       - name: Mostrar información de la imagen
         run: |
           echo "Imagen construida y subida exitosamente:"
