@@ -47,29 +47,20 @@ jobs:
           echo "Imagen construida y subida exitosamente:"
           echo "  - Imagen: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}"
           echo "  - Docker Hub: https://hub.docker.com/r/${{ secrets.DOCKER_USERNAME }}/ejemplo-api-docker"
-
+          
   notify-on-push:
     runs-on: ubuntu-latest
     needs: build-and-push
     if: always()
     steps:
-      - name: Send email notification
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "Docker Image Build Status - ${{ github.repository }}"
-          body: |
-            <h2>Docker Image Build Notification</h2>
-            <p><strong>Repository:</strong> ${{ github.repository }}</p>
-            <p><strong>Commit:</strong> ${{ github.sha }}</p>
-            <p><strong>Author:</strong> ${{ github.actor }}</p>
-            <p><strong>Status:</strong> ${{ needs.build-and-push.result }}</p>
-            <p><strong>Docker Image:</strong> ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}</p>
-            <p><strong>Workflow Run:</strong> <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}">View Run</a></p>
-            <p><strong>Commit Message:</strong> ${{ github.event.head_commit.message }}</p>
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
-          content_type: text/html
+      - name: Notify on Success
+        if: needs.build-and-push.result == 'success'
+        run: |
+          echo "✅ Docker image built and pushed successfully!"
+          echo "Image: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}"
+          
+      - name: Notify on Failure
+        if: needs.build-and-push.result == 'failure'
+        run: |
+          echo "❌ Docker build failed!"
+          exit 1
