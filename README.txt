@@ -29,3 +29,6 @@ docker exec -i mongodb sh -c "mongorestore --username root --password root --aut
     mongorestore ... --drop: Esta opcion elimina las colecciones existentes antes de restaurarlas, para evitar conflictos con datos presentes
 
     < ./mongo_backup.dump: Redirige el contenido del backup como entrada al comando mongorestore
+
+
+dckr_pat_sIDJYA47iAO50bE3DxvGUXJQpdA (dcrtkn)
