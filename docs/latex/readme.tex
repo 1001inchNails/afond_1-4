@@ -577,6 +577,29 @@ Después tan sólo tenemos que configurar los \verb|secrets| en el repo, \verb|S
 
 Además, ya que el archivo está configurado para acceder a DockerHub mediante token, generamos la token (\verb|Write & Read|), recordando que hay que copiarla nada más crearla.
 
+\section{Notificacion al pushear}
 
+He intentado meterle notificación por email pero la cuenta alternativa de gmail que uso no me dejaba generar un App password, de manera que he usado los notificaciones nativas de Github.
+
+\begin{verbatim}
+  notify-on-push:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: always()
+    steps:
+      - name: Notify on Success
+        if: needs.build-and-push.result == 'success'
+        run: |
+          echo "Docker image built and pushed successfully!"
+          echo "Image: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}"
+          
+      - name: Notify on Failure
+        if: needs.build-and-push.result == 'failure'
+        run: |
+          echo "Docker build failed!"
+          exit 1
+\end{verbatim}
+
+La notificacion puede verse en el repositorio, la pestaña de Actions, clickeamos el último commit, click en notify-on-push.
 
 \end{document}
