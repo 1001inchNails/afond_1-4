@@ -367,7 +367,7 @@ Content-Type: application/json
 \section{Consideraciones Técnicas}
 \hyperlink{anchor-indice}{\textbf{Volver}}\\
 
-\section{Códigos de Estado HTTP}
+\subsection{Códigos de Estado HTTP}
 
 \begin{itemize}
     \item \textbf{200 OK}: Operación exitosa
@@ -376,8 +376,7 @@ Content-Type: application/json
     \item \textbf{500 Internal Server Error}: Error del servidor
 \end{itemize}
 
-\section{Stack tecnológico}
-\hyperlink{anchor-indice}{\textbf{Volver}}\\
+\subsection{Stack tecnológico}
 
 \begin{itemize}
     \item \textbf{Versión Node.js:} 22.14
@@ -393,8 +392,7 @@ Content-Type: application/json
     \end{itemize}
 \end{itemize}
 
-\section{Variables de entorno (.env)}
-\hyperlink{anchor-indice}{\textbf{Volver}}\\
+\subsection{Variables de entorno (.env)}
 
     \begin{itemize}
     \item \texttt{PORT}: Puerto en el que se ejecutará el servidor.
@@ -402,6 +400,8 @@ Content-Type: application/json
     \item \texttt{MONGO\_INITDB\_ROOT\_PASSWORD}: Password de la BBDD.
     \item \texttt{MONGO\_INITDB\_DATABASE}: Nombre de la BBDD.
     \end{itemize}
+
+\clearpage
 
 \section{Dockerizacion}
 \hyperlink{anchor-indice}{\textbf{Volver}}\\
@@ -518,9 +518,12 @@ Push:
 \verb|docker push dccp/ejemplo-api:v1.0.0|
 Nombre de usuario, nombre de imagen, tag.
 
-\section{Github Action}
+\clearpage
 
-Con este yml creado en \verb|.github/workflows| nos permite usar ese workflow desde el repositorio aparte de cuando se hace un push:
+\section{Github Actions}
+\hyperlink{anchor-indice}{\textbf{Volver}}\\
+
+Con este archivo \verb|yml| creado en \verb|.github/workflows| nos permite usar ese workflow manualmente desde el repositorio además de cuando se hace un push:
 \begin{verbatim}
   name: Build and Push Push Push
 
@@ -577,7 +580,7 @@ Después tan sólo tenemos que configurar los \verb|secrets| en el repo, \verb|S
 
 Además, ya que el archivo está configurado para acceder a DockerHub mediante token, generamos la token (\verb|Write & Read|), recordando que hay que copiarla nada más crearla.
 
-\section{Notificacion al pushear}
+\subsection{Notificacion al pushear}
 
 He intentado meterle notificación por email pero la cuenta alternativa de gmail que uso no me dejaba generar un App password, de manera que he usado los notificaciones nativas de Github.
 

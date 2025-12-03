@@ -25,12 +25,12 @@
 \contentsline {section}{\numberline {6}Manejo de Errores}{11}{section.6}%
 \contentsline {section}{\numberline {7}Ejemplos de Uso}{11}{section.7}%
 \contentsline {section}{\numberline {8}Consideraciones Técnicas}{12}{section.8}%
-\contentsline {section}{\numberline {9}Códigos de Estado HTTP}{12}{section.9}%
-\contentsline {section}{\numberline {10}Stack tecnológico}{12}{section.10}%
-\contentsline {section}{\numberline {11}Variables de entorno (.env)}{12}{section.11}%
-\contentsline {section}{\numberline {12}Dockerizacion}{13}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Dockerfile}{13}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Archivo YAML}{14}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Pushear imagen a Dockerhub}{15}{subsection.12.3}%
-\contentsline {section}{\numberline {13}Github Action}{15}{section.13}%
-\contentsline {section}{\numberline {14}Notificacion al pushear}{17}{section.14}%
+\contentsline {subsection}{\numberline {8.1}Códigos de Estado HTTP}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Stack tecnológico}{12}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Variables de entorno (.env)}{12}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Dockerizacion}{13}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Dockerfile}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Archivo YAML}{14}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Pushear imagen a Dockerhub}{15}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Github Actions}{16}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Notificacion al pushear}{17}{subsection.10.1}%

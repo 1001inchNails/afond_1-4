@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.26)  28 NOV 2025 20:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.26)  3 DEC 2025 19:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -455,36 +455,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 368--369
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
-
- []
-
-
 
 [12
 
 ]
-<../img/docker01.png, id=247, 652.68843pt x 241.65282pt>
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
+
+ []
+
+<../img/docker01.png, id=245, 652.68843pt x 241.65282pt>
 File: ../img/docker01.png Graphic file (type png)
 <use ../img/docker01.png>
 Package pdftex.def Info: ../img/docker01.png  used on input line 431.
 (pdftex.def)             Requested size: 455.24411pt x 168.55847pt.
-<../img/docker02.png, id=249, 1248.16313pt x 319.1925pt>
+<../img/docker02.png, id=247, 1248.16313pt x 319.1925pt>
 File: ../img/docker02.png Graphic file (type png)
 <use ../img/docker02.png>
 Package pdftex.def Info: ../img/docker02.png  used on input line 438.
 (pdftex.def)             Requested size: 455.24411pt x 116.41905pt.
-<../img/docker03.png, id=250, 1171.37625pt x 126.4725pt>
+<../img/docker03.png, id=248, 1171.37625pt x 126.4725pt>
 File: ../img/docker03.png Graphic file (type png)
 <use ../img/docker03.png>
 Package pdftex.def Info: ../img/docker03.png  used on input line 445.
@@ -499,7 +488,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[13 <../img/docker01.png> <../img/docker02.png>]
+[13
+
+ <../img/docker01.png> <../img/docker02.png>]
 Overfull \hbox (26.40613pt too wide) in paragraph at lines 488--488
 []      \OT1/cmtt/m/n/12 - MONGO_URI=mongodb://root:root@mongodb:27017/bbdd_test?authSource=admin[] 
  []
@@ -512,12 +503,12 @@ Overfull \hbox (102.2697pt too wide) in paragraph at lines 494--495
 
 
 [14 <../img/docker03.png>]
-<../img/docker04.png, id=263, 546.54187pt x 235.63031pt>
+<../img/docker04.png, id=261, 546.54187pt x 235.63031pt>
 File: ../img/docker04.png Graphic file (type png)
 <use ../img/docker04.png>
 Package pdftex.def Info: ../img/docker04.png  used on input line 500.
 (pdftex.def)             Requested size: 455.24411pt x 196.27061pt.
-<../img/docker05.png, id=264, 732.48656pt x 200.24812pt>
+<../img/docker05.png, id=262, 732.48656pt x 200.24812pt>
 File: ../img/docker05.png Graphic file (type png)
 <use ../img/docker05.png>
 Package pdftex.def Info: ../img/docker05.png  used on input line 507.
@@ -525,29 +516,36 @@ Package pdftex.def Info: ../img/docker05.png  used on input line 507.
 
 
 [15 <../img/docker04.png> <../img/docker05.png>]
-Overfull \hbox (32.58113pt too wide) in paragraph at lines 574--574
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
+
+ []
+
+
+Overfull \hbox (32.58113pt too wide) in paragraph at lines 577--577
 []          \OT1/cmtt/m/n/12 cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_NAME }}:buildcache[] 
  []
 
 
-Overfull \hbox (32.58113pt too wide) in paragraph at lines 574--574
+
+[16
+
+]
+Overfull \hbox (32.58113pt too wide) in paragraph at lines 577--577
 []          \OT1/cmtt/m/n/12 echo "  - Imagen: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}"[] 
  []
 
 
-Overfull \hbox (205.48122pt too wide) in paragraph at lines 574--574
+Overfull \hbox (205.48122pt too wide) in paragraph at lines 577--577
 []          \OT1/cmtt/m/n/12 echo "  - Docker Hub: https://hub.docker.com/r/${{ secrets.DOCKER_USERNAME }}/ejemplo-api-docker"[] 
  []
 
 
-Overfull \hbox (78.53755pt too wide) in paragraph at lines 576--577
+Overfull \hbox (78.53755pt too wide) in paragraph at lines 579--580
 []\OT1/cmr/m/n/12 Despu^^Ses tan s^^Solo te-ne-mos que con-fi-gu-rar los [][]\OT1/cmtt/m/n/12 secrets []\OT1/cmr/m/n/12 en el re-po, [][]\OT1/cmtt/m/n/12 Settings, Secrets and Variables[]\OT1/cmr/m/n/12 . 
  []
 
 
-
-[16]
-Overfull \hbox (1.70612pt too wide) in paragraph at lines 601--601
+Overfull \hbox (1.70612pt too wide) in paragraph at lines 604--604
 []          \OT1/cmtt/m/n/12 echo "Image: ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_TAG }}"[] 
  []
 
@@ -562,23 +560,23 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `readme.out' has not changed.
-(rerunfilecheck)             Checksum: 990F93478FC37B451F2C892245099D9D;5219.
+(rerunfilecheck)             Checksum: 41CEDA9026CEE011430F049832A6F57A;5272.
  ) 
 Here is how much of TeX's memory you used:
  11706 strings out of 468130
- 184361 string characters out of 5429181
- 628460 words of memory out of 5000000
+ 184389 string characters out of 5429181
+ 629471 words of memory out of 5000000
  40141 multiletter control sequences out of 15000+600000
  633624 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,386b,779s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,386b,793s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{anchor-indice} has been referenced but does not exist, replaced by a fixed one
 
  <C:\Users\danielcc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/danielcc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/danielcc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/danielcc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/danielcc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on readme.pdf (17 pages, 222858 bytes).
+Output written on readme.pdf (17 pages, 223087 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
+ 315 PDF objects out of 1000 (max. 8388607)
  55 named destinations out of 1000 (max. 500000)
  306 words of extra memory for PDF output out of 10000 (max. 10000000)
 
