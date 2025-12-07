@@ -1,6 +1,6 @@
 services:
   api:
-    image: ejemplo-api:v1.0.0
+    image: dccp/ejemplo-api:v1.0.0
     container_name: api-test
     restart: unless-stopped
     ports:

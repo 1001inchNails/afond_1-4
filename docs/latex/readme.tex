@@ -508,6 +508,8 @@ Levantar contenedor: \verb|docker-compose up -d  |
 \end{figure}
 \FloatBarrier
 
+\clearpage
+
 \subsection{Pushear imagen a Dockerhub}
 
 Build:
@@ -516,7 +518,38 @@ Nombre de usuario, nombre de imagen, tag, ruta.
 
 Push:
 \verb|docker push dccp/ejemplo-api:v1.0.0|
-Nombre de usuario, nombre de imagen, tag.
+Nombre de usuario, nombre de imagen, tag.\\
+
+Resultado del pusheado:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker06.png}
+\end{figure}
+\FloatBarrier
+
+Uso de la imagen pusheado en el \verb|docker.compose|:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{docker07.png}
+\end{figure}
+\FloatBarrier
+
+Despues de \verb|docker-compose up -d|, resultado en Docker Desktop:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker08.png}
+\end{figure}
+\FloatBarrier
+
+\clearpage
+
+Funcionamiento correcto:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{docker09.png}
+\end{figure}
+\FloatBarrier
+
 
 \clearpage
 

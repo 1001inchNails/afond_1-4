@@ -31,6 +31,6 @@
 \contentsline {section}{\numberline {9}Dockerizacion}{13}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Dockerfile}{13}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Archivo YAML}{14}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Pushear imagen a Dockerhub}{15}{subsection.9.3}%
-\contentsline {section}{\numberline {10}Github Actions}{16}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Notificacion al pushear}{17}{subsection.10.1}%
+\contentsline {subsection}{\numberline {9.3}Pushear imagen a Dockerhub}{16}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Github Actions}{18}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Notificacion al pushear}{19}{subsection.10.1}%
