@@ -13,7 +13,7 @@ app.use(corsOptions);
 
 // rutas
 app.get("/", (req, res) => {
-  res.json({ message: "Escucha establecidaAAA" });
+  res.json({ message: "Escucha establecidaAAAQWERTY" });
 });
 
 app.use(router);
